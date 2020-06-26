@@ -81,7 +81,7 @@ public class NoteActivity extends AppCompatActivity {
             if(mIsNewNote) {
                 DataManager.getInstance().removeNote(mNotePosition);
             } else {
-                restoreOriginalNoteValues();
+                storePreviousNoteValues();
             }
         } else {
             saveNote();
@@ -96,7 +96,7 @@ public class NoteActivity extends AppCompatActivity {
 
     }
 
-    private void restoreOriginalNoteValues() {
+    private void storePreviousNoteValues() {
         CourseInfo course = DataManager.getInstance().getCourse(mViewModel.mOriginalNoteCourseId);
         mNote.setCourse(course);
         mNote.setTitle(mViewModel.mOriginalNoteTitle);
